@@ -8,15 +8,11 @@ import VideoList from './components/videolist';
 class App extends Component {
   state = {
     showContent: false,
-    videos: [
-      {
-        id: '',
-        snippet: {},
-      },
-    ],
+    videos: [],
   };
-  url = 'https://youtube.googleapis.com/youtube/v3/search';
+  url = 'https://youtube.googleapis.com/youtube/v3/videos';
   key = 'AIzaSyDMH41LEzdH2pjqKYZkIIgCg4dpMJtcDAI';
+  chart = 'mostPopular';
   maxResults = 25;
   query = 'bts';
 
@@ -26,6 +22,7 @@ class App extends Component {
         params: {
           key: this.key,
           part: 'snippet',
+          chart: this.chart,
           maxResults: this.maxResults,
           q: this.query,
         },
@@ -35,20 +32,20 @@ class App extends Component {
         console.log(res.data.items);
         const results = res.data.items;
         const videos = results.map((result) => {
-          return { id: result.id.videoId, snippet: result.snippet };
+          return { id: result.id, snippet: result.snippet };
         });
         console.log('videos', videos);
         this.setState({ videos });
       })
       .catch((err) => {
-        console.error('axios error:', err);
+        console.error('get postPopular error:', err);
       });
   }
   render() {
     return (
       <>
         <Header />
-        <VideoList videos={this.videos} />
+        <VideoList videos={this.state.videos} />
         <Content />
       </>
     );
