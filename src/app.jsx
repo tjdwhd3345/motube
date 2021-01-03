@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import './app.css';
 import Content from './components/content';
 import Header from './components/header';
-import VideoList from './components/videolist';
+import VideoList from './components/video_list/videolist';
 
 class App extends Component {
   state = {
     showContent: false,
+    contentId: '',
     videos: [],
   };
   url = 'https://youtube.googleapis.com/youtube/v3/videos';
@@ -15,6 +16,7 @@ class App extends Component {
   chart = 'mostPopular';
   maxResults = 25;
   query = 'bts';
+  regionCode = 'KR';
 
   componentDidMount() {
     axios
@@ -24,6 +26,7 @@ class App extends Component {
           part: 'snippet',
           chart: this.chart,
           maxResults: this.maxResults,
+          regionCode: this.regionCode,
           q: this.query,
         },
       })
@@ -41,12 +44,21 @@ class App extends Component {
         console.error('get postPopular error:', err);
       });
   }
+
+  handleVideoClick = (videoId) => {
+    console.log('handleVideoClick:', videoId);
+    this.setState({ contentId: videoId });
+  };
+
   render() {
     return (
       <>
         <Header />
-        <VideoList videos={this.state.videos} />
-        <Content />
+        <VideoList
+          videos={this.state.videos}
+          onVideoClick={this.handleVideoClick}
+        />
+        <Content contentId={this.state.contentId} />
       </>
     );
   }
