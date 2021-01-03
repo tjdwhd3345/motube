@@ -12,11 +12,11 @@ class Video extends Component {
     return (
       <li className={styles.container} onClick={this.handleOnClick}>
         <div className={styles.video}>
-          <div className={styles.thumbnails}>
+          <div className={styles.thumbnail}>
             <img
-              src={this.snippet.thumbnails.default.url}
+              src={this.snippet.thumbnails.medium.url}
               alt='video thumbnail'
-              className={styles.thumbnails_img}
+              className={styles.thumbnail_img}
             />
           </div>
           <div className={styles.metadata}>

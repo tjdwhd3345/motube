@@ -18,8 +18,10 @@
   transform: scale(1.02);
 }
 
-.thumbnail {
+.thumbnail_img {
+  object-fit: cover;
   width: 40%;
+  height: 100%;
 }
 
 .metadata {
