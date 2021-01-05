@@ -1,0 +1,39 @@
+header {
+  display: flex;
+  background-color: #000000;
+  color: #ffffff;
+  height: 4rem;
+  padding: 0.8em 1em;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 1em;
+}
+
+.searchInput {
+  margin-left: 20px;
+  flex-basis: 60%;
+  font-size: 1.2rem;
+  background-color: #000000;
+  border: 0.5px solid #575656;
+  color: #ffffff;
+}
+
+.searchInput:focus {
+  border: 1px solid #378ef1;
+  outline: none;
+}
+
+.searchButton {
+  background-color: rgb(63, 63, 63);
+  cursor: pointer;
+  border: 0px;
+}
+
+.searchButton > img {
+  padding: 0.5em 0.2em;
+  height: 100%;
+}

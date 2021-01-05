@@ -23,23 +23,21 @@ class Header extends Component {
   render() {
     return (
       <>
-        <header className={styles.header}>
-          <div className={styles.logo}>
+        <header>
+          <div className={styles.logoContainer}>
             <img src='images/logo.png' alt='logo' className={styles.logo} />
             <h1 className={styles.title}>YouTube</h1>
           </div>
-          <div className='search-container'>
-            <input
-              ref={this.inputRef}
-              type='search'
-              className={styles.input}
-              placeholder='검색'
-              onKeyPress={this.handleKeyPress}
-            />
-            <button className={styles.button} onClick={this.handleClick}>
-              검색
-            </button>
-          </div>
+          <input
+            ref={this.inputRef}
+            type='search'
+            className={styles.searchInput}
+            placeholder='검색'
+            onKeyPress={this.handleKeyPress}
+          />
+          <button className={styles.searchButton} onClick={this.handleClick}>
+            <img src='/images/search.png' alt='search' />
+          </button>
         </header>
       </>
     );
