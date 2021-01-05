@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import styles from './app.module.css';
-import Content from './components/content';
+import Content from './components/content/content';
 import Header from './components/header/header';
+import Infobox from './components/infobox/infobox';
 import VideoList from './components/video_list/videolist';
 
 class App extends Component {
   state = {
-    showContent: false,
+    selectedVideo: null,
     contentId: '',
     videos: [],
   };
@@ -20,9 +21,10 @@ class App extends Component {
       });
   }
 
-  handleVideoClick = (videoId) => {
-    console.log('handleVideoClick:', videoId);
-    // this.setState({ contentId: videoId });
+  handleVideoClick = (video) => {
+    console.log('handleVideoClick:', video);
+
+    this.setState({ selectedVideo: video });
   };
 
   handleSearchClick = (keyword) => {
@@ -31,17 +33,20 @@ class App extends Component {
       .then((videos) => {
         this.setState({ videos });
       });
+    this.setState({ showContent: false });
   };
 
   render() {
     return (
       <div className={styles.app}>
         <Header onSearchClick={this.handleSearchClick} />
+        {this.state.selectedVideo && (
+          <Content selectedVideo={this.state.selectedVideo} />
+        )}
         <VideoList
           videos={this.state.videos}
           onVideoClick={this.handleVideoClick}
         />
-        {this.state.showContent && <Content contentId={this.state.contentId} />}
       </div>
     );
   }
