@@ -1,4 +1,7 @@
-.content {
+.detail {
+  padding: 0.2em;
 }
-.video {
+
+.description {
+  white-space: pre-wrap;
 }

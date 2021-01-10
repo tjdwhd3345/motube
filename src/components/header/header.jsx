@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styles from './header.module.css';
 
-class Header extends Component {
+class Header extends PureComponent {
   inputRef = React.createRef();
 
   handleSearch = () => {
@@ -21,6 +21,7 @@ class Header extends Component {
   };
 
   render() {
+    console.log('header.jsx render');
     return (
       <>
         <header>

@@ -2,3 +2,15 @@
   max-width: 80rem;
   background-color: #ffffff;
 }
+
+.content {
+  display: flex;
+}
+
+.detail {
+  flex: 1 1 70%;
+}
+
+.list {
+  flex: 1 1 30%;
+}

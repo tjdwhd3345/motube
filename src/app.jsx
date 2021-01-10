@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styles from './app.module.css';
 import Content from './components/content/content';
 import Header from './components/header/header';
-import Infobox from './components/infobox/infobox';
 import VideoList from './components/video_list/videolist';
 
 class App extends Component {
@@ -31,22 +30,30 @@ class App extends Component {
     this.youtube
       .search(keyword) //
       .then((videos) => {
+        this.setState({ selectedVideo: null });
         this.setState({ videos });
       });
-    this.setState({ showContent: false });
   };
 
   render() {
+    console.log('app.jsx render');
     return (
       <div className={styles.app}>
         <Header onSearchClick={this.handleSearchClick} />
-        {this.state.selectedVideo && (
-          <Content selectedVideo={this.state.selectedVideo} />
-        )}
-        <VideoList
-          videos={this.state.videos}
-          onVideoClick={this.handleVideoClick}
-        />
+        <section className={styles.content}>
+          {this.state.selectedVideo && (
+            <div className={styles.detail}>
+              <Content selectedVideo={this.state.selectedVideo} />
+            </div>
+          )}
+          <div className={styles.list}>
+            <VideoList
+              videos={this.state.videos}
+              onVideoClick={this.handleVideoClick}
+              display={this.state.selectedVideo ? 'list' : 'grid'}
+            />
+          </div>
+        </section>
       </div>
     );
   }
