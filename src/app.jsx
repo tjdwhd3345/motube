@@ -15,15 +15,21 @@ class App extends Component {
   componentDidMount() {
     this.youtube
       .mostPopular() //
-      .then((videos) => {
+      .then(async (videos) => {
+        /* const channels = await this.youtube.channels(videos);
+        console.log('channels:', channels); */
         this.setState({ videos });
       });
   }
 
   handleVideoClick = (video) => {
     console.log('handleVideoClick:', video);
-
-    this.setState({ selectedVideo: video });
+    this.youtube
+      .findVideo(video.id) //
+      .then((result) => {
+        console.log('res:', result);
+        this.setState({ selectedVideo: video });
+      });
   };
 
   handleSearchClick = (keyword) => {
