@@ -20,12 +20,16 @@ class Header extends PureComponent {
     this.handleSearch();
   };
 
+  handleLogoClick = () => {
+    window.location = '/';
+  };
+
   render() {
     console.log('header.jsx render');
     return (
       <>
         <header>
-          <div className={styles.logoContainer}>
+          <div className={styles.logoContainer} onClick={this.handleLogoClick}>
             <img src='images/logo.png' alt='logo' className={styles.logo} />
             <h1 className={styles.title}>YouTube</h1>
           </div>
