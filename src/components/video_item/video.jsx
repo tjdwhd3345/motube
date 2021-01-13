@@ -5,9 +5,19 @@ class Video extends Component {
   handleOnClick = () => {
     this.props.onVideoClick(this.props.video);
   };
+
+  numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   render() {
     console.log('video.jsx render');
-    const { videoId: id, snippet } = this.props.video;
+    const {
+      videoId: id,
+      snippet,
+      channelThumbnail,
+      statistics,
+    } = this.props.video;
     const displayType =
       this.props.display === 'list' ? styles.list : styles.grid;
     return (
@@ -17,17 +27,24 @@ class Video extends Component {
       >
         <div className={styles.video}>
           <img
-            src={snippet.thumbnails.medium.url}
+            src={snippet.thumbnails.standard.url}
             alt='video thumbnail'
             className={styles.thumbnail}
           />
           <div className={styles.metadata}>
-            <p className={styles.title}>
-              {snippet.title.length > 40
-                ? snippet.title.substr(0, 40) + '...'
-                : snippet.title}
-            </p>
-            <p className={styles.channel}>{snippet.channelTitle}</p>
+            <img
+              className={styles.channelThumbnail}
+              src={`${channelThumbnail.url}`}
+              alt='channelThumbnail'
+            />
+            <div>
+              <p className={styles.title}>{snippet.title}</p>
+              <p className={styles.channel}>{snippet.channelTitle}</p>
+              <p className={styles.channelInfo}>
+                조회수 {this.numberWithCommas(statistics.viewCount)} 회 •{' '}
+                {snippet.publishedAt.slice(0, 10).replaceAll('-', '.')}
+              </p>
+            </div>
           </div>
         </div>
       </li>

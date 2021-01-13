@@ -2,6 +2,56 @@
   padding: 0.2em;
 }
 
+.firstInfo {
+  border-bottom: 2px solid rgb(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
+
+.firstInfo span {
+  color: #a9a9a9;
+  margin-right: 25px;
+}
+
+.thumbs {
+  cursor: pointer;
+  color: #a9a9a9;
+}
+
+.thumbs span {
+  margin-left: 8px;
+}
+
+.playCounts,
+.publishedDate {
+}
+
+.secondInfo {
+  border-bottom: 2px solid rgb(255, 255, 255, 0.2);
+  /* height: 266px;
+  overflow: hidden; */
+}
+
 .description {
   white-space: pre-wrap;
+  height: 150px;
+  overflow: hidden;
+}
+
+.description.expand {
+  height: 100%;
+}
+
+.button {
+  color: #a9a9a9;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  padding: 0;
+  margin: 15px 0;
+}
+
+.button:hover {
+  cursor: pointer;
 }

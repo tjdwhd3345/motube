@@ -6,7 +6,7 @@ class Youtube {
       baseURL: 'https://youtube.googleapis.com/youtube/v3/',
       params: {
         key: key,
-        maxResults: 3,
+        maxResults: 10,
         regionCode: 'KR',
       },
     });
@@ -67,14 +67,12 @@ class Youtube {
       });
       const results = res.data.items;
       console.log('video, ', results);
-      return results.map((result) => {
-        return {
-          id: result.id,
-          snippet: result.snippet,
-          channelId: result.snippet.channelId,
-          statistics: result.statistics,
-        };
-      });
+      return {
+        id: results[0].id,
+        snippet: results[0].snippet,
+        channelId: results[0].snippet.channelId,
+        statistics: results[0].statistics,
+      };
     } catch (err) {
       console.error('get video error:', err);
     }
@@ -91,31 +89,18 @@ class Youtube {
         });
       });
       const results = await Promise.all(promises);
-      console.log('results:', results);
-      return results.map((result) => {
+      const thumbnails = results.map((result) => {
         return {
-          thumbnails: result.data.items[0].snippet.thumbnails,
-          statistics: result.data.items[0].statistics,
+          thumbnail: result.data.items[0].snippet.thumbnails.default,
+          channelId: result.data.items[0].id,
         };
       });
-      /* for (let video of videos) {
-        console.log('channels, ', video);
-        const res = await this.youtube.get('channels', {
-          params: {
-            part: 'snippet,statistics',
-            id: video.channelId,
-          },
-        });
-        const results = res.data.items;
-        console.log(results);
-        return results.map((result) => {
-          return {
-            thumbnails: result.thumbnails,
-            statistics: result.statistics,
-          };
-        });
-      }
-      return ''; */
+      return videos.map((video, idx) => {
+        if (video.channelId === thumbnails[idx].channelId) {
+          video['channelThumbnail'] = thumbnails[idx].thumbnail;
+        }
+        return video;
+      });
     } catch (err) {
       // console.err('get channel info:', err);
     }

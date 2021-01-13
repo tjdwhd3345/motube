@@ -28,10 +28,10 @@ class Header extends PureComponent {
     console.log('header.jsx render');
     return (
       <>
-        <header>
+        <header className={styles.header}>
           <div className={styles.logoContainer} onClick={this.handleLogoClick}>
             <img src='images/logo.png' alt='logo' className={styles.logo} />
-            <h1 className={styles.title}>YouTube</h1>
+            <span className={styles.title}>MoTube</span>
           </div>
           <input
             ref={this.inputRef}
