@@ -27,7 +27,7 @@ class Video extends Component {
       >
         <div className={styles.video}>
           <img
-            src={snippet.thumbnails.standard.url}
+            src={snippet.thumbnails.maxres.url}
             alt='video thumbnail'
             className={styles.thumbnail}
           />
