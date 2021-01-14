@@ -42,7 +42,7 @@ class Header extends PureComponent {
             onKeyPress={this.handleKeyPress}
           />
           <button className={styles.searchButton} onClick={this.handleClick}>
-            <img src='/images/search.png' alt='search' />
+            <img src='images/search.png' alt='search' />
           </button>
         </header>
       </>
