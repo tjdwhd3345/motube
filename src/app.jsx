@@ -26,6 +26,11 @@ class App extends Component {
     this.youtube
       .findVideo(video.id) //
       .then((result) => {
+        this.state.videos.forEach((video) => {
+          if (result.channelId === video.channelId) {
+            result['channelThumbnail'] = video.channelThumbnail;
+          }
+        });
         console.log('res:', result);
         this.setState({ selectedVideo: result });
       })

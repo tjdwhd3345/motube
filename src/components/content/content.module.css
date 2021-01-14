@@ -49,6 +49,23 @@
   overflow: hidden; */
 }
 
+.channel {
+  display: flex;
+  margin: 0.8em 0;
+  align-items: center;
+}
+
+.channelThumbnail {
+  width: 36px;
+  height: 36px;
+  border-radius: 45px;
+  margin-right: 8px;
+}
+
+.channelTitle {
+  font-weight: 600;
+}
+
 .description {
   white-space: pre-wrap;
   height: 150px;

@@ -19,6 +19,7 @@ class Content extends Component {
     const src = `https://www.youtube.com/embed/${this.props.selectedVideo.id}?autoplay=1`;
     const snippet = this.props.selectedVideo.snippet;
     const statistics = this.props.selectedVideo.statistics;
+    const channelThumbnail = this.props.selectedVideo.channelThumbnail;
     const expand = this.state.expand;
 
     console.log('content.jsx render', snippet, statistics);
@@ -60,7 +61,14 @@ class Content extends Component {
           </div>
         </div>
         <div className={styles.secondInfo}>
-          <h2 className={styles.channelTitle}>{snippet.channelTitle}</h2>
+          <div className={styles.channel}>
+            <img
+              className={styles.channelThumbnail}
+              src={`${channelThumbnail.url}`}
+              alt='channelThumbnail'
+            />
+            <span className={styles.channelTitle}>{snippet.channelTitle}</span>
+          </div>
           <div className={`${styles.description} ${expand}`}>
             {snippet.description}
           </div>
