@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/motube/static/css/main.47ba6170.chunk.css",
-    "main.js": "/motube/static/js/main.3d69466d.chunk.js",
-    "main.js.map": "/motube/static/js/main.3d69466d.chunk.js.map",
+    "main.css": "/motube/static/css/main.356509e3.chunk.css",
+    "main.js": "/motube/static/js/main.bc821543.chunk.js",
+    "main.js.map": "/motube/static/js/main.bc821543.chunk.js.map",
     "runtime-main.js": "/motube/static/js/runtime-main.8cd067bf.js",
     "runtime-main.js.map": "/motube/static/js/runtime-main.8cd067bf.js.map",
     "static/js/2.cc371dae.chunk.js": "/motube/static/js/2.cc371dae.chunk.js",
     "static/js/2.cc371dae.chunk.js.map": "/motube/static/js/2.cc371dae.chunk.js.map",
     "index.html": "/motube/index.html",
-    "static/css/main.47ba6170.chunk.css.map": "/motube/static/css/main.47ba6170.chunk.css.map",
+    "static/css/main.356509e3.chunk.css.map": "/motube/static/css/main.356509e3.chunk.css.map",
     "static/js/2.cc371dae.chunk.js.LICENSE.txt": "/motube/static/js/2.cc371dae.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8cd067bf.js",
     "static/js/2.cc371dae.chunk.js",
-    "static/css/main.47ba6170.chunk.css",
-    "static/js/main.3d69466d.chunk.js"
+    "static/css/main.356509e3.chunk.css",
+    "static/js/main.bc821543.chunk.js"
   ]
 }
