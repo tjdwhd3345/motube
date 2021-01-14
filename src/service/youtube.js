@@ -6,7 +6,7 @@ class Youtube {
       baseURL: 'https://youtube.googleapis.com/youtube/v3/',
       params: {
         key: key,
-        maxResults: 10,
+        maxResults: 30,
         regionCode: 'KR',
       },
     });
@@ -21,7 +21,6 @@ class Youtube {
         },
       });
       const results = res.data.items;
-      console.log('mostPopular:', results);
       return results.map((result) => {
         return {
           id: result.id,
@@ -45,10 +44,12 @@ class Youtube {
         },
       });
       const results = res.data.items;
+      console.log('search:', results);
       return results.map((result) => {
         return {
           id: result.id.videoId,
           snippet: result.snippet,
+          channelId: result.snippet.channelId,
         };
       });
     } catch (err) {
@@ -66,7 +67,7 @@ class Youtube {
         },
       });
       const results = res.data.items;
-      console.log('video, ', results);
+      console.log('findVideo results, ', results);
       return {
         id: results[0].id,
         snippet: results[0].snippet,

@@ -27,7 +27,11 @@ class Video extends Component {
       >
         <div className={styles.video}>
           <img
-            src={snippet.thumbnails.maxres.url}
+            src={
+              snippet.thumbnails.maxres
+                ? snippet.thumbnails.maxres.url
+                : snippet.thumbnails.high.url
+            }
             alt='video thumbnail'
             className={styles.thumbnail}
           />
@@ -40,10 +44,16 @@ class Video extends Component {
             <div className={styles.titlebox}>
               <span className={styles.title}>{snippet.title}</span>
               <span className={styles.channel}>{snippet.channelTitle}</span>
-              <span className={styles.channelInfo}>
-                조회수 {this.numberWithCommas(statistics.viewCount)} 회 •{' '}
-                {snippet.publishedAt.slice(0, 10).replaceAll('-', '.')}
-              </span>
+              {statistics ? (
+                <span className={styles.channelInfo}>
+                  조회수 {this.numberWithCommas(statistics.viewCount)} 회 •{' '}
+                  {snippet.publishedAt.slice(0, 10).replace(/-/g, '.')}
+                </span>
+              ) : (
+                <span className={styles.channelInfo}>
+                  {snippet.publishedAt.slice(0, 10).replace(/-/g, '.')}
+                </span>
+              )}
             </div>
           </div>
         </div>

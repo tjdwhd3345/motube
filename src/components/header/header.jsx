@@ -8,6 +8,7 @@ class Header extends PureComponent {
     const keyword = this.inputRef.current.value;
     console.log('handleClick', keyword);
     this.props.onSearchClick(keyword);
+    this.inputRef.current.blur();
   };
 
   handleKeyPress = (e) => {

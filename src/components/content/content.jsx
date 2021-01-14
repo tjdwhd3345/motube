@@ -16,7 +16,7 @@ class Content extends Component {
   };
 
   render() {
-    const src = `https://www.youtube.com/embed/${this.props.selectedVideo.id}?autoplay=1&origin=http://localhost:3000`;
+    const src = `https://www.youtube.com/embed/${this.props.selectedVideo.id}?autoplay=1`;
     const snippet = this.props.selectedVideo.snippet;
     const statistics = this.props.selectedVideo.statistics;
     const expand = this.state.expand;
@@ -41,16 +41,22 @@ class Content extends Component {
               조회수 {this.numberWithCommas(statistics.viewCount)} 회
             </span>
             <span className={styles.publishedDate}>
-              {snippet.publishedAt.slice(0, 10).replaceAll('-', '.')}
+              {snippet.publishedAt.slice(0, 10).replace(/-/g, '.')}
             </span>
           </div>
           <div className={styles.thumbs}>
             <i class='fas fa-thumbs-up'></i>
             <span className={styles.likeThumb}>
-              {this.numberWithCommas(statistics.likeCount)}
+              {statistics.likeCount
+                ? this.numberWithCommas(statistics.likeCount)
+                : '좋아요'}
             </span>
             <i class='fas fa-thumbs-down'></i>
-            <span>{this.numberWithCommas(statistics.dislikeCount)}</span>
+            <span>
+              {statistics.dislikeCount
+                ? this.numberWithCommas(statistics.dislikeCount)
+                : '싫어요'}
+            </span>
           </div>
         </div>
         <div className={styles.secondInfo}>

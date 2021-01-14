@@ -71,3 +71,9 @@
 .button:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 48rem) {
+  .firstInfo {
+    font-size: 3.9vw;
+  }
+}

@@ -17,7 +17,6 @@ class App extends Component {
       .mostPopular() //
       .then(async (videos) => {
         const videosWithThumb = await this.youtube.channels(videos);
-        console.log('videosWithThumb:', videosWithThumb);
         this.setState({ videos: videosWithThumb });
       });
   }
@@ -29,15 +28,20 @@ class App extends Component {
       .then((result) => {
         console.log('res:', result);
         this.setState({ selectedVideo: result });
+      })
+      .then(() => {
+        window.scrollTo(0, 0);
       });
   };
 
   handleSearchClick = (keyword) => {
     this.youtube
       .search(keyword) //
-      .then((videos) => {
+      .then(async (videos) => {
+        console.log('search then:', videos);
+        const videosWithThumb = await this.youtube.channels(videos);
         this.setState({ selectedVideo: null });
-        this.setState({ videos });
+        this.setState({ videos: videosWithThumb });
       });
   };
 
