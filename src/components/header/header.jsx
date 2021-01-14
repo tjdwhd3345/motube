@@ -22,7 +22,7 @@ class Header extends PureComponent {
   };
 
   handleLogoClick = () => {
-    window.location = '/';
+    window.location = '/motube';
   };
 
   render() {
