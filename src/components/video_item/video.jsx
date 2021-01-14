@@ -37,13 +37,13 @@ class Video extends Component {
               src={`${channelThumbnail.url}`}
               alt='channelThumbnail'
             />
-            <div>
-              <p className={styles.title}>{snippet.title}</p>
-              <p className={styles.channel}>{snippet.channelTitle}</p>
-              <p className={styles.channelInfo}>
+            <div className={styles.titlebox}>
+              <span className={styles.title}>{snippet.title}</span>
+              <span className={styles.channel}>{snippet.channelTitle}</span>
+              <span className={styles.channelInfo}>
                 조회수 {this.numberWithCommas(statistics.viewCount)} 회 •{' '}
                 {snippet.publishedAt.slice(0, 10).replaceAll('-', '.')}
-              </p>
+              </span>
             </div>
           </div>
         </div>

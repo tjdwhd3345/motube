@@ -30,8 +30,6 @@ class Content extends Component {
             src={src}
             title='motube video player'
             frameBorder='0'
-            width='100%'
-            height='500'
             allowFullScreen
             className={styles.video}
           ></iframe>

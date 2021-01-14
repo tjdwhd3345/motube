@@ -1,17 +1,33 @@
 .detail {
   padding: 0.2em;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  font-size: 1rem;
 }
 
 .firstInfo {
   border-bottom: 2px solid rgb(255, 255, 255, 0.2);
   display: flex;
   justify-content: space-between;
-  height: 30px;
+  height: 2em;
 }
 
 .firstInfo span {
   color: #a9a9a9;
-  margin-right: 25px;
+  margin-right: 0.4em;
 }
 
 .thumbs {
