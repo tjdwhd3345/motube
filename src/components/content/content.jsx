@@ -16,7 +16,7 @@ class Content extends Component {
   };
 
   render() {
-    // const src = `https://www.youtube.com/embed/${this.props.selectedVideo.id}?autoplay=1`;
+    const src = `https://www.youtube.com/embed/${this.props.selectedVideo.id}?autoplay=1`;
     const snippet = this.props.selectedVideo.snippet;
     const statistics = this.props.selectedVideo.statistics;
     const channelThumbnail = this.props.selectedVideo.channelThumbnail;
@@ -25,7 +25,7 @@ class Content extends Component {
     console.log('content.jsx render', snippet, statistics);
     return (
       <>
-        {/* <section className={styles.detail}>
+        <section className={styles.detail}>
           <iframe
             id='ytplayer'
             src={src}
@@ -34,7 +34,7 @@ class Content extends Component {
             allowFullScreen
             className={styles.video}
           ></iframe>
-        </section> */}
+        </section>
         <h2 className={styles.title}>{snippet.title}</h2>
         <div className={styles.firstInfo}>
           <div>
