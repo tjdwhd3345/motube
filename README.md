@@ -1,31 +1,3 @@
-# Motube
-https://tjdwhd3345.github.io/motube/
-
-YouTube Data API V3 를 활용한 유튜브 서비스
-1. React 
-1. axios
-1. YouTube Data API V3
-1. PostCss
-
-## 실행화면
-### Desktop
-![motube1](public/images/motube_01_main.png)
-![motube2](public/images/motube_02_search.png)
-![motube3](public/images/motube_03_player.png)
-### Mobile
-![motube4](public/images/motube_04_main.png)
-![motube5](public/images/motube_05_search.png)
-![motube6](public/images/motube_06_player.png)
-## 기능
-* 메인페이지에 인기동영상 30개 표시
-  * axios & youtube data API 를 활용하여 조회
-* 영상 및 채널 검색
-  * axios & youtube data API 를 활용하여 조회
-* 인기동영상 및 영상 검색 시 채널썸네일도 표현하기 위해 각각의 비동기 통신을 Promise.all 로 묶어서 한번에 처리
-* PostCss 로 CSS 모듈화
-* Desktop & Mobile 반응형 CSS 적용
-
----
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
