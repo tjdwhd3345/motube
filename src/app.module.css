@@ -4,6 +4,23 @@
   color: #ffffff;
 }
 
+.videoDetail {
+  padding: 0.2em;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: sticky;
+  top: 0;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .content {
   display: flex;
   padding: 0 1em;

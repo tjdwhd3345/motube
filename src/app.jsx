@@ -52,9 +52,24 @@ class App extends Component {
 
   render() {
     console.log('app.jsx render');
+    const src = this.state.selectedVideo
+      ? `https://www.youtube.com/embed/${this.state.selectedVideo.id}?autoplay=1`
+      : '';
     return (
       <div className={styles.app}>
         <Header onSearchClick={this.handleSearchClick} />
+        {this.state.selectedVideo && (
+          <section className={styles.videoDetail}>
+            <iframe
+              id='ytplayer'
+              src={src}
+              title='motube video player'
+              frameBorder='0'
+              allowFullScreen
+              className={styles.video}
+            ></iframe>
+          </section>
+        )}
         <section className={styles.content}>
           {this.state.selectedVideo && (
             <div className={styles.detail}>
