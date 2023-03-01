@@ -1,0 +1,44 @@
+{
+  "url": "https://youtube.googleapis.com/youtube/v3/channels?key=AIzaSyDMH41LEzdH2pjqKYZkIIgCg4dpMJtcDAI&maxResults=30&regionCode=KR&part=snippet&id=UCDNvRZRgvkBTUkQzFoT_8rA",
+  "kind": "youtube#channelListResponse",
+  "etag": "1UtySItUSQd5fogrx1t3yHC-JLI",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 30
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "6-8daZbrZu_zg-5PiNgHhj6TiaA",
+      "id": "UCDNvRZRgvkBTUkQzFoT_8rA",
+      "snippet": {
+        "title": "뜬뜬 DdeunDdeun",
+        "description": "\n좋은 사람, 좋은 이야기, 좋은 웃음\n우리 '뜬뜬'한 사이 돼봐요💕 \n\n🤓유선배 복지 콘텐츠🗣토크찌개맛집🥘\n🐓핑계고🐓는 불시에 찾아옵니다! \n----------------------------------------\n🥂그저 술 마시며 게임하는 고품격 사교모임🥂\n🎲빰빰소셜클럽🎲금요일 밤 10시 OPEN🔔\n\n🙏🏻 plz 구독☝알림설정🔔 plz 🙏🏻\n\n뭐든지 문의할 땐, ddeunddeun@antenna.co.kr\n인스타 놀러올 땐, @ddeun._.ddeun\n",
+        "customUrl": "@ddeunddeun",
+        "publishedAt": "2022-10-04T07:24:23.973864Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/aOgjye3sMIxNl2SW2wAQZpZWUXzZ5Rg0rNITacRQKVfXvF9cnPWb77G3_gH5s2Zyw241BXWYWg=s88-c-k-c0x00ffffff-no-rj",
+            "width": 88,
+            "height": 88
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/aOgjye3sMIxNl2SW2wAQZpZWUXzZ5Rg0rNITacRQKVfXvF9cnPWb77G3_gH5s2Zyw241BXWYWg=s240-c-k-c0x00ffffff-no-rj",
+            "width": 240,
+            "height": 240
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/aOgjye3sMIxNl2SW2wAQZpZWUXzZ5Rg0rNITacRQKVfXvF9cnPWb77G3_gH5s2Zyw241BXWYWg=s800-c-k-c0x00ffffff-no-rj",
+            "width": 800,
+            "height": 800
+          }
+        },
+        "localized": {
+          "title": "뜬뜬 DdeunDdeun",
+          "description": "\n좋은 사람, 좋은 이야기, 좋은 웃음\n우리 '뜬뜬'한 사이 돼봐요💕 \n\n🤓유선배 복지 콘텐츠🗣토크찌개맛집🥘\n🐓핑계고🐓는 불시에 찾아옵니다! \n----------------------------------------\n🥂그저 술 마시며 게임하는 고품격 사교모임🥂\n🎲빰빰소셜클럽🎲금요일 밤 10시 OPEN🔔\n\n🙏🏻 plz 구독☝알림설정🔔 plz 🙏🏻\n\n뭐든지 문의할 땐, ddeunddeun@antenna.co.kr\n인스타 놀러올 땐, @ddeun._.ddeun\n"
+        },
+        "country": "KR"
+      }
+    }
+  ]
+}

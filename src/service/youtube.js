@@ -1,27 +1,13 @@
-// const { default: axios } = require("axios");
-import axios from "axios";
-
 class Youtube {
-  constructor(key) {
-    this.youtube = axios.create({
-      baseURL: "https://youtube.googleapis.com/youtube/v3/",
-      params: {
-        key: key,
-        maxResults: 30,
-        regionCode: "KR",
-      },
-    });
+  constructor(client) {
+    this.apiClient = client;
   }
 
   async mostPopular() {
     try {
-      const res = await this.youtube.get("videos", {
-        params: {
-          part: "snippet,statistics",
-          chart: "mostPopular",
-        },
-      });
-      const results = res.data.items;
+      const params = { part: "snippet,statistics", chart: "mostPopular" };
+      const { data } = await this.apiClient.videos({ params });
+      const { items: results } = data;
       return results.map((result) => {
         return {
           id: result.id,
@@ -37,14 +23,9 @@ class Youtube {
 
   async search(keyword) {
     try {
-      const res = await this.youtube.get("search", {
-        params: {
-          part: "snippet",
-          type: "video",
-          q: keyword,
-        },
-      });
-      const results = res.data.items;
+      const params = { part: "snippet", type: "video", q: keyword };
+      const { data } = await this.apiClient.search({ params });
+      const { items: results } = data;
       console.log("search:", results);
       return results.map((result) => {
         return {
@@ -60,21 +41,13 @@ class Youtube {
 
   async findVideo(videoId) {
     try {
+      const params = { part: "snippet,statistics", id: videoId };
       console.log("findVideo:", videoId);
-      const res = await this.youtube.get("videos", {
-        params: {
-          part: "snippet,statistics",
-          id: videoId,
-        },
-      });
-      const results = res.data.items;
+      const { data } = await this.apiClient.videos({ params });
+      const { items: results } = data;
       console.log("findVideo results, ", results);
-      return {
-        id: results[0].id,
-        snippet: results[0].snippet,
-        channelId: results[0].snippet.channelId,
-        statistics: results[0].statistics,
-      };
+      const { id, snippet, statistics } = results[0];
+      return { id, snippet, channelId: snippet.channelId, statistics };
     } catch (err) {
       console.error("get video error:", err);
     }
@@ -83,7 +56,7 @@ class Youtube {
   async channels(videos) {
     try {
       const promises = videos.map(async (video) => {
-        return await this.youtube.get("channels", {
+        return await this.apiClient.channels({
           params: {
             part: "snippet",
             id: video.channelId,

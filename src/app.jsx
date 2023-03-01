@@ -2,9 +2,10 @@ import React, { Component, useState, useEffect } from "react";
 import Content from "./components/content/content";
 import Header from "./components/header/header";
 import VideoList from "./components/video_list/videolist";
+import { youtube } from "./service";
 import styles from "./app.module.css";
 
-function App2({ youtube }) {
+function App2() {
   const [state, setState] = useState({
     selectedVideo: null,
     contentId: "",
@@ -73,8 +74,7 @@ class App extends Component {
     contentId: "",
     videos: [],
   };
-
-  youtube = this.props.youtube;
+  youtube = youtube;
 
   componentDidMount() {
     this.youtube
