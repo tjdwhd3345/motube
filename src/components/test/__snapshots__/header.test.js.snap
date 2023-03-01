@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="header"
+  >
+    <div
+      class="logoContainer"
+    >
+      <img
+        alt="logo"
+        class="logo"
+        src="images/logo.png"
+      />
+      <span
+        class="title"
+      >
+        MoTube
+      </span>
+    </div>
+    <input
+      class="searchInput"
+      placeholder="검색"
+      type="search"
+      value=""
+    />
+    <button
+      class="searchButton"
+    >
+      <img
+        alt="search"
+        src="images/search.png"
+      />
+    </button>
+  </header>
+</DocumentFragment>
+`;

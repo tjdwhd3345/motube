@@ -1,16 +1,80 @@
-import React, { Component } from 'react';
-import styles from './app.module.css';
-import Content from './components/content/content';
-import Header from './components/header/header';
-import VideoList from './components/video_list/videolist';
+import React, { Component, useState, useEffect } from "react";
+import Content from "./components/content/content";
+import Header from "./components/header/header";
+import VideoList from "./components/video_list/videolist";
+import { youtube } from "./service";
+import styles from "./app.module.css";
+
+function App2() {
+  const [state, setState] = useState({
+    selectedVideo: null,
+    contentId: "",
+    videos: [],
+  });
+
+  const loadHandler = async () => {
+    const videos = await youtube.mostPopular();
+    const videosWithThumb = await youtube.channels(videos);
+    setState(() => ({ videos: videosWithThumb }));
+  };
+
+  useEffect(async () => {
+    await loadHandler();
+  }, []);
+
+  const handleVideoClick = async (video) => {
+    const result = await youtube.findVideo(video.id);
+    state.videos.forEach((video) => {
+      if (result.channelId === video.channelId) {
+        result.channelThumbnail = video.channelThumbnail;
+      }
+    });
+    console.log("res:", result);
+    setState(() => ({ selectedVideo: result }));
+    window.scrollTo(0, 0);
+  };
+
+  const handleSearchClick = (keyword) => {
+    youtube
+      .search(keyword) //
+      .then(async (videos) => {
+        console.log("search then:", videos);
+        const videosWithThumb = await youtube.channels(videos);
+        setState({ selectedVideo: null });
+        setState({ videos: videosWithThumb });
+      });
+  };
+
+  return (
+    <div className={styles.app}>
+      <Header onSearchClick={handleSearchClick} />
+      <section className={styles.content}>
+        {state.selectedVideo && (
+          <div className={styles.detail}>
+            <Content selectedVideo={state.selectedVideo} />
+          </div>
+        )}
+        <div className={styles.list}>
+          <VideoList
+            videos={state.videos}
+            onVideoClick={handleVideoClick}
+            display={state.selectedVideo ? "list" : "grid"}
+          />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export { App2 };
 
 class App extends Component {
   state = {
     selectedVideo: null,
-    contentId: '',
+    contentId: "",
     videos: [],
   };
-  youtube = this.props.youtube;
+  youtube = youtube;
 
   componentDidMount() {
     this.youtube
@@ -22,16 +86,16 @@ class App extends Component {
   }
 
   handleVideoClick = (video) => {
-    console.log('handleVideoClick:', video);
+    console.log("handleVideoClick:", video);
     this.youtube
       .findVideo(video.id) //
       .then((result) => {
         this.state.videos.forEach((video) => {
           if (result.channelId === video.channelId) {
-            result['channelThumbnail'] = video.channelThumbnail;
+            result.channelThumbnail = video.channelThumbnail;
           }
         });
-        console.log('res:', result);
+        console.log("res:", result);
         this.setState({ selectedVideo: result });
       })
       .then(() => {
@@ -43,7 +107,7 @@ class App extends Component {
     this.youtube
       .search(keyword) //
       .then(async (videos) => {
-        console.log('search then:', videos);
+        console.log("search then:", videos);
         const videosWithThumb = await this.youtube.channels(videos);
         this.setState({ selectedVideo: null });
         this.setState({ videos: videosWithThumb });
@@ -51,7 +115,7 @@ class App extends Component {
   };
 
   render() {
-    console.log('app.jsx render');
+    console.log("app.jsx render");
     return (
       <div className={styles.app}>
         <Header onSearchClick={this.handleSearchClick} />
@@ -65,7 +129,7 @@ class App extends Component {
             <VideoList
               videos={this.state.videos}
               onVideoClick={this.handleVideoClick}
-              display={this.state.selectedVideo ? 'list' : 'grid'}
+              display={this.state.selectedVideo ? "list" : "grid"}
             />
           </div>
         </section>
