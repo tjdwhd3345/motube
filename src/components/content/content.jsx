@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import styles from './content.module.css';
+import React, { Component } from "react";
+import styles from "./content.module.css";
 
 class Content extends Component {
   state = {
-    expand: '',
+    expand: "",
   };
   toggleExpand = (e) => {
-    e.target.innerText = e.target.innerText === '더보기' ? '간략히' : '더보기';
-    const expand = this.state.expand === '' ? styles.expand : '';
+    e.target.innerText = e.target.innerText === "더보기" ? "간략히" : "더보기";
+    const expand = this.state.expand === "" ? styles.expand : "";
     this.setState({ expand });
   };
 
   numberWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   render() {
@@ -22,15 +22,15 @@ class Content extends Component {
     const channelThumbnail = this.props.selectedVideo.channelThumbnail;
     const expand = this.state.expand;
 
-    console.log('content.jsx render', snippet, statistics);
+    console.log("content.jsx render", snippet, statistics);
     return (
       <>
         <section className={styles.detail}>
           <iframe
-            id='ytplayer'
+            id="ytplayer"
             src={src}
-            title='motube video player'
-            frameBorder='0'
+            title="motube video player"
+            frameBorder="0"
             allowFullScreen
             className={styles.video}
           ></iframe>
@@ -42,21 +42,17 @@ class Content extends Component {
               조회수 {this.numberWithCommas(statistics.viewCount)} 회
             </span>
             <span className={styles.publishedDate}>
-              {snippet.publishedAt.slice(0, 10).replace(/-/g, '.')}
+              {snippet.publishedAt.slice(0, 10).replace(/-/g, ".")}
             </span>
           </div>
           <div className={styles.thumbs}>
-            <i class='fas fa-thumbs-up'></i>
+            <i className="fas fa-thumbs-up"></i>
             <span className={styles.likeThumb}>
-              {statistics.likeCount
-                ? this.numberWithCommas(statistics.likeCount)
-                : '좋아요'}
+              {statistics.likeCount ? this.numberWithCommas(statistics.likeCount) : "좋아요"}
             </span>
-            <i class='fas fa-thumbs-down'></i>
+            <i className="fas fa-thumbs-down"></i>
             <span>
-              {statistics.dislikeCount
-                ? this.numberWithCommas(statistics.dislikeCount)
-                : '싫어요'}
+              {statistics.dislikeCount ? this.numberWithCommas(statistics.dislikeCount) : "싫어요"}
             </span>
           </div>
         </div>
@@ -65,13 +61,11 @@ class Content extends Component {
             <img
               className={styles.channelThumbnail}
               src={`${channelThumbnail.url}`}
-              alt='channelThumbnail'
+              alt="channelThumbnail"
             />
             <span className={styles.channelTitle}>{snippet.channelTitle}</span>
           </div>
-          <div className={`${styles.description} ${expand}`}>
-            {snippet.description}
-          </div>
+          <div className={`${styles.description} ${expand}`}>{snippet.description}</div>
           <button className={styles.button} onClick={this.toggleExpand}>
             더보기
           </button>

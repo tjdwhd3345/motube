@@ -1,23 +1,24 @@
-const { default: axios } = require('axios');
+// const { default: axios } = require("axios");
+import axios from "axios";
 
 class Youtube {
   constructor(key) {
     this.youtube = axios.create({
-      baseURL: 'https://youtube.googleapis.com/youtube/v3/',
+      baseURL: "https://youtube.googleapis.com/youtube/v3/",
       params: {
         key: key,
         maxResults: 30,
-        regionCode: 'KR',
+        regionCode: "KR",
       },
     });
   }
 
   async mostPopular() {
     try {
-      const res = await this.youtube.get('videos', {
+      const res = await this.youtube.get("videos", {
         params: {
-          part: 'snippet,statistics',
-          chart: 'mostPopular',
+          part: "snippet,statistics",
+          chart: "mostPopular",
         },
       });
       const results = res.data.items;
@@ -30,21 +31,21 @@ class Youtube {
         };
       });
     } catch (err) {
-      console.error('get mostPopular error:', err);
+      console.error("get mostPopular error:", err);
     }
   }
 
   async search(keyword) {
     try {
-      const res = await this.youtube.get('search', {
+      const res = await this.youtube.get("search", {
         params: {
-          part: 'snippet',
-          type: 'video',
+          part: "snippet",
+          type: "video",
           q: keyword,
         },
       });
       const results = res.data.items;
-      console.log('search:', results);
+      console.log("search:", results);
       return results.map((result) => {
         return {
           id: result.id.videoId,
@@ -53,21 +54,21 @@ class Youtube {
         };
       });
     } catch (err) {
-      console.error('get search videos error:', err);
+      console.error("get search videos error:", err);
     }
   }
 
   async findVideo(videoId) {
     try {
-      console.log('findVideo:', videoId);
-      const res = await this.youtube.get('videos', {
+      console.log("findVideo:", videoId);
+      const res = await this.youtube.get("videos", {
         params: {
-          part: 'snippet,statistics',
+          part: "snippet,statistics",
           id: videoId,
         },
       });
       const results = res.data.items;
-      console.log('findVideo results, ', results);
+      console.log("findVideo results, ", results);
       return {
         id: results[0].id,
         snippet: results[0].snippet,
@@ -75,16 +76,16 @@ class Youtube {
         statistics: results[0].statistics,
       };
     } catch (err) {
-      console.error('get video error:', err);
+      console.error("get video error:", err);
     }
   }
 
   async channels(videos) {
     try {
       const promises = videos.map(async (video) => {
-        return await this.youtube.get('channels', {
+        return await this.youtube.get("channels", {
           params: {
-            part: 'snippet',
+            part: "snippet",
             id: video.channelId,
           },
         });
@@ -98,7 +99,7 @@ class Youtube {
       });
       return videos.map((video, idx) => {
         if (video.channelId === thumbnails[idx].channelId) {
-          video['channelThumbnail'] = thumbnails[idx].thumbnail;
+          video["channelThumbnail"] = thumbnails[idx].thumbnail;
         }
         return video;
       });
