@@ -1,20 +1,13 @@
 {
   "files": {
-    "main.css": "/motube/static/css/main.83ab4508.chunk.css",
-    "main.js": "/motube/static/js/main.25804970.chunk.js",
-    "main.js.map": "/motube/static/js/main.25804970.chunk.js.map",
-    "runtime-main.js": "/motube/static/js/runtime-main.8cd067bf.js",
-    "runtime-main.js.map": "/motube/static/js/runtime-main.8cd067bf.js.map",
-    "static/js/2.565b4e89.chunk.js": "/motube/static/js/2.565b4e89.chunk.js",
-    "static/js/2.565b4e89.chunk.js.map": "/motube/static/js/2.565b4e89.chunk.js.map",
+    "main.css": "/motube/static/css/main.d81d9218.css",
+    "main.js": "/motube/static/js/main.85f04832.js",
     "index.html": "/motube/index.html",
-    "static/css/main.83ab4508.chunk.css.map": "/motube/static/css/main.83ab4508.chunk.css.map",
-    "static/js/2.565b4e89.chunk.js.LICENSE.txt": "/motube/static/js/2.565b4e89.chunk.js.LICENSE.txt"
+    "main.d81d9218.css.map": "/motube/static/css/main.d81d9218.css.map",
+    "main.85f04832.js.map": "/motube/static/js/main.85f04832.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.8cd067bf.js",
-    "static/js/2.565b4e89.chunk.js",
-    "static/css/main.83ab4508.chunk.css",
-    "static/js/main.25804970.chunk.js"
+    "static/css/main.d81d9218.css",
+    "static/js/main.85f04832.js"
   ]
 }
