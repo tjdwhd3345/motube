@@ -1,1 +1,3 @@
-export const testEnvironment = "jsdom";
+export default {
+  testEnvironment: "jsdom",
+};
