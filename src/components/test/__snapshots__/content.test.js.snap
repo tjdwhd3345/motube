@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content renders correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="detail"
+  >
+    <iframe
+      allowfullscreen=""
+      class="video"
+      data-testid="iframe"
+      frameborder="0"
+      id="ytplayer"
+      src="https://www.youtube.com/embed/1?autoplay=1"
+      title="motube video player"
+    />
+  </section>
+  <h2
+    class="title"
+  >
+    test-title
+  </h2>
+  <div
+    class="firstInfo"
+  >
+    <div>
+      <span
+        class="playCounts"
+      >
+        조회수 99,999,999 회
+      </span>
+      <span
+        class="publishedDate"
+      >
+        2022.12.20
+      </span>
+    </div>
+    <div
+      class="thumbs"
+    >
+      <i
+        class="fas fa-thumbs-up"
+      />
+      <span
+        class="likeThumb"
+      >
+        10,000,000
+      </span>
+      <i
+        class="fas fa-thumbs-down"
+      />
+      <span>
+        3,333
+      </span>
+    </div>
+  </div>
+  <div
+    class="secondInfo"
+  >
+    <div
+      class="channel"
+    >
+      <img
+        alt="channelThumbnail"
+        class="channelThumbnail"
+        src="test-url"
+      />
+      <span
+        class="channelTitle"
+      >
+        test-channel-title
+      </span>
+    </div>
+    <div
+      class="description "
+    >
+      test-desc
+    </div>
+    <button
+      class="button"
+    >
+      더보기
+    </button>
+  </div>
+</DocumentFragment>
+`;
