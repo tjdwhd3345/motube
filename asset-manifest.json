@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/motube/static/css/main.d81d9218.css",
-    "main.js": "/motube/static/js/main.85f04832.js",
+    "main.js": "/motube/static/js/main.c66daefe.js",
     "index.html": "/motube/index.html",
     "main.d81d9218.css.map": "/motube/static/css/main.d81d9218.css.map",
-    "main.85f04832.js.map": "/motube/static/js/main.85f04832.js.map"
+    "main.c66daefe.js.map": "/motube/static/js/main.c66daefe.js.map"
   },
   "entrypoints": [
     "static/css/main.d81d9218.css",
-    "static/js/main.85f04832.js"
+    "static/js/main.c66daefe.js"
   ]
 }
