@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoList renders correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="videos"
+  >
+    <li
+      class="container grid"
+    >
+      <div
+        class="video"
+      >
+        <img
+          alt="video thumbnail"
+          class="thumbnail"
+          src="https://i.ytimg.com/vi/SRyk6t77Er8/maxresdefault.jpg"
+        />
+        <div
+          class="metadata"
+        >
+          <img
+            alt="channelThumbnail"
+            class="channelThumbnail"
+            src="https://yt3.ggpht.com/aOgjye3sMIxNl2SW2wAQZpZWUXzZ5Rg0rNITacRQKVfXvF9cnPWb77G3_gH5s2Zyw241BXWYWg=s88-c-k-c0x00ffffff-no-rj"
+          />
+          <div
+            class="titlebox"
+          >
+            <span
+              class="title"
+            >
+              [ENG] 커피 한잔은 핑계고
+            </span>
+            <span
+              class="channel"
+            >
+              뜬뜬 DdeunDdeun
+            </span>
+            <span
+              class="channelInfo"
+            >
+              조회수 2,914,711 회 • 2023.02.25
+            </span>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="container grid"
+    >
+      <div
+        class="video"
+      >
+        <img
+          alt="video thumbnail"
+          class="thumbnail"
+          src="https://i.ytimg.com/vi/Uop1xS8EgUw/maxresdefault.jpg"
+        />
+        <div
+          class="metadata"
+        >
+          <img
+            alt="channelThumbnail"
+            class="channelThumbnail"
+            src="https://yt3.ggpht.com/J3OI66Bc7T3nheyKJKAkXR6tb-_bpCsoRMTFoslOBCXI3DpVY8eFY4LZWzww3BEgkRjMOEoI=s88-c-k-c0x00ffffff-no-rj"
+          />
+          <div
+            class="titlebox"
+          >
+            <span
+              class="title"
+            >
+              [백종원 시장이 되다 7화] 여기에 목숨 걸 거 아니면 하지 마세요. 예산 시장엔 과연 무슨 일이...?
+            </span>
+            <span
+              class="channel"
+            >
+              백종원 PAIK JONG WON
+            </span>
+            <span
+              class="channelInfo"
+            >
+              조회수 911,697 회 • 2023.02.27
+            </span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

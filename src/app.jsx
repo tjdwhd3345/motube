@@ -10,30 +10,16 @@ function App() {
   const [contentId, setContentId] = useState("");
   const [videos, setVideos] = useState([]);
 
-  const loadHandler = async () => {
-    const videos = await youtube.mostPopular();
-    const videosWithThumb = await youtube.channels(videos);
-    setVideos(() => videosWithThumb);
-  };
-
-  useEffect(async () => {
-    await loadHandler();
-  }, []);
-
   const handleVideoClick = async (video) => {
-    const result = await youtube.findVideo(video.id);
-    videos.forEach((video) => {
-      if (result.channelId === video.channelId) {
-        result.channelThumbnail = video.channelThumbnail;
-      }
-    });
-    console.log("res:", result);
-    setSelectedVideo(() => result);
+    const videos = await youtube.findVideo(video.id);
+    const videosWithChannelThumbnail = await youtube.channels(videos);
+    console.log("res:", videos);
+    setSelectedVideo(() => videosWithChannelThumbnail);
     window.scrollTo(0, 0);
   };
 
   const handleSearchClick = async (keyword) => {
-    const videos = await youtube.search(keyword); //
+    const videos = await youtube.search(keyword);
     const videosWithThumb = await youtube.channels(videos);
     setVideos(() => videosWithThumb);
     setSelectedVideo(() => null);
@@ -49,11 +35,7 @@ function App() {
           </div>
         )}
         <div className={styles.list}>
-          <VideoList
-            videos={videos}
-            onVideoClick={handleVideoClick}
-            display={selectedVideo ? "list" : "grid"}
-          />
+          <VideoList onVideoClick={handleVideoClick} display={selectedVideo ? "list" : "grid"} />
         </div>
       </section>
     </div>
